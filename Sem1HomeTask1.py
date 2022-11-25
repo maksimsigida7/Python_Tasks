@@ -9,4 +9,4 @@ else:
     if (numweek == 6 or numweek == 7):
         print(f'Число {numweek} является выходным днем')
     else:
-       print(f'Число {numweek}  не является днем недели')
+       print(f'Число {numweek} не является днем недели')
