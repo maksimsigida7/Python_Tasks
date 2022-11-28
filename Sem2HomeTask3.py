@@ -11,7 +11,7 @@ n = int(input('Введите число N: '))
 list = [i for i in range(-n,n+1)]
 print(*list, sep=' ')
 try:
-    inds = [int(i) for i in input('Для вычисления произведения ведите индексы элементов через пробел: ').split()]
+    inds = [int(i) for i in input('Для вычисления произведения ведите индексы элементов через запятую: ').split(',')]
 except:
     print('Ошибка')
 
