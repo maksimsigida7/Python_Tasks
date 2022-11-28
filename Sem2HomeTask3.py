@@ -1,41 +1,28 @@
 # Задайте список из (2*N+1) элементов, заполненных
-# числами из промежутка [-N, N].
+#  числами из промежутка [-N, N].
 # Найдите произведение элементов на указанных ИНДЕКСАХ.
 # Пять ИНДЕКСОВ хранятся в списке, который вы сами заполняете.
 
 # Пример списка ИНДЕКСОВ [2, 2, 3, 1, 8]
 
-# from random import randint
-
-def list(n):
-    list = []
-    for i in range(n):
-        list.append(range(-n, n))
-    return list
 
 n = int(input('Введите число N: '))
-numbers = list(n)
-print(numbers)
-x = open('file.txt','r')
-result = numbers[int(x.readline())] * numbers[int(x.readline(2))]
-print(result)
 
-from random import randint
-numbers = []
-for i in range(10):
-    numbers.append(randint (-10,10))
-print(numbers)
+list = [i for i in range(-n,n+1)]
+print(*list, sep=' ')
+try:
+    inds = [int(i) for i in input('Для вычисления произведения ведите индексы элементов через пробел: ').split()]
+except:
+    print('Ошибка')
 
-def get_numbers(numbers):
-    count =0 
-    for element in numbers:
-        count +=1
-    return count
-print('Number of elements: ', get_numbers(numbers))
-
-x = int(input('Enter  position of first element: '))
-y = int(input('Enter position of second element: '))
-
-for i in range(len(numbers)):
-    mult = numbers[x -1]*numbers[y - 1]
-print(f'Mult of elements: {numbers[x -1]} * {numbers[y -1]} =', mult)
+result = 1
+err = []
+for i in inds:
+    try:
+        result *= list[i]
+    except:
+        err.append(i)
+        continue
+print(f'Результат произведения = {result}')
+if err:
+    print('В массиве отсутствуют элементы с индексами:', *err, sep=' ')
